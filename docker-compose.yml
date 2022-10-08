@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  tos-server:
+    image: tos:1.0
+    build:
+      context: './'
+    container_name: tos
+    ports:
+      - 12000:12000
+      - 12100:12100
+    restart: always
+    env_file:
+      - ./.env
+    networks:
+      - "HURRICANE_TOS"
+
+networks:
+  HURRICANE_TOS:
+    name: "HURRICANE_TOS"
